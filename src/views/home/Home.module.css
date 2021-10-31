@@ -1,0 +1,29 @@
+.alerts_area {
+  display: flex;
+  margin-top: 22px;
+}
+
+.btn {
+  margin-right: 8px;
+  height: 56px;
+  width: 90px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.warning {
+  background: rgb(247, 247, 120);
+}
+
+.error {
+  background: rgb(255, 60, 60);
+}
+
+.success {
+  background: rgb(71, 247, 71);
+}
+
+.info {
+  background: rgb(114, 175, 255);
+}

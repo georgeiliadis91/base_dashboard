@@ -3,7 +3,7 @@ import { ActionTypes } from "../../redux/alert/actions";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/reducers";
 import { useTriggerClose } from "../../redux/alert/hooks";
-
+import styles from "./Alert.module.css";
 export default function Alert() {
   const closeAlert = useTriggerClose();
 
@@ -20,13 +20,13 @@ export default function Alert() {
   const severityType = () => {
     switch (type) {
       case ActionTypes.ERROR:
-        return "error";
+        return styles.error;
       case ActionTypes.WARNING:
-        return "warning";
+        return styles.warning;
       case ActionTypes.SUCCESS:
-        return "success";
+        return styles.success;
       case ActionTypes.INFO:
-        return "info";
+        return styles.info;
       default:
         return undefined;
     }
@@ -35,9 +35,13 @@ export default function Alert() {
   // in case message show error with severity
   if (open && message !== "") {
     return (
-      <div className={`alert-message severityType()`}>
-        <button onClick={handleClose} />
-        {message}
+      <div className={`${styles.alert_message} ${severityType()}`}>
+        <div className={styles.msg_container}>
+          <span>{message}</span>
+          <button className={styles.close_alert_btn} onClick={handleClose}>
+            X
+          </button>
+        </div>
       </div>
     );
   }
