@@ -11,7 +11,8 @@ function useDropdownMenu(initiaState: boolean = false) {
   // click handle function
   const handleClick = (event: Event) => {
     console.log("the event", event);
-    // Check for safari
+    // Check for safari, currently not working properly due to event.path TS errors
+    // const path = event.path || (event.composedPath && event.composedPath());
     const path = event.composedPath && event.composedPath();
     if (ref.current && !path.includes(ref.current)) {
       setOpen(false);
