@@ -1,7 +1,7 @@
-import React from "react";
-import { Outlet, Link, Navigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { AppState } from "../../redux/reducers";
 import { useSelector } from "react-redux";
+import styles from "./PublicLayout.module.css";
 
 export const PublicLayout = () => {
   // const classes = useStyles();
@@ -11,8 +11,8 @@ export const PublicLayout = () => {
     return <Navigate to={`app/`} />;
   } else {
     return (
-      <div className="root">
-        <main className="content">
+      <div className={styles.container}>
+        <main className={styles.main}>
           <Outlet />
         </main>
       </div>

@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+  width: 270px;
+  color: #fff;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list_item {
+}

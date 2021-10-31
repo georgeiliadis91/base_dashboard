@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router";
-import "./App.css";
+import styles from "./App.module.css";
 import Alert from "./components/alerts/Alerts";
 import routes from "./views/routes";
 
@@ -7,7 +7,7 @@ function App() {
   const routing = useRoutes(routes);
 
   return (
-    <div className="dashboard-app-root">
+    <div className={styles.root_container}>
       {routing}
       <Alert />
     </div>

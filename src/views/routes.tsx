@@ -15,7 +15,7 @@ const routes = [
     path: "app",
     element: <DashBoardLayout />,
     children: [
-      { path: "app/home", element: <Home /> },
+      { path: "/app/home", element: <Home /> },
       { path: "app/*", element: <Navigate to="/404" /> },
     ],
   },
