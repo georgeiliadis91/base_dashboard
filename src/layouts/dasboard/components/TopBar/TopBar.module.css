@@ -1,5 +1,14 @@
 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 90px;
   width: 100%;
   color: #fff;
+  padding: 24px;
+}
+
+.breadcrumbs_container {
+}
+.user_menu_container {
 }

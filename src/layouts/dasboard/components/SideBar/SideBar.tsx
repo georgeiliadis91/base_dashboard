@@ -12,7 +12,11 @@ export const SideBar = (props: Props) => {
       <div className={styles.logo_container}>Logo goes here</div>
       <ul className={styles.list}>
         {addressList.map((v, i) => {
-          return <li className={styles.list_item}>NavigationItem - {v}</li>;
+          return (
+            <li key={i} className={styles.list_item}>
+              NavigationItem - {v}
+            </li>
+          );
         })}
       </ul>
     </div>
