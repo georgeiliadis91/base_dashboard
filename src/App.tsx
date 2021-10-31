@@ -7,7 +7,7 @@ function App() {
   const routing = useRoutes(routes);
 
   return (
-    <div className="App">
+    <div className="dashboard-app-root">
       {routing}
       <Alert />
     </div>
