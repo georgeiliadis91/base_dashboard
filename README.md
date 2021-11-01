@@ -14,7 +14,8 @@ TODOS:
 - Fetch Helpers
 - BreadCrumbs
 - Side Menu Clearer
-- useDropDown fix for Safari
+- Link SideMenu to routing and display selected route
+- useDropDown fix for Safari - needs verifycation
 - Convert to Toolkit
 - Start with tests
 - Write a coders manifest

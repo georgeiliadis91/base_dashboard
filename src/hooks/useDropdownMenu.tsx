@@ -9,11 +9,12 @@ function useDropdownMenu(initiaState: boolean = false) {
   const ref = useRef(null);
 
   // click handle function
-  const handleClick = (event: Event) => {
+  const handleClick = (event: MouseEvent) => {
     console.log("the event", event);
     // Check for safari, currently not working properly due to event.path TS errors
     // const path = event.path || (event.composedPath && event.composedPath());
-    const path = event.composedPath && event.composedPath();
+    const path =
+      (event as any).path || (event.composedPath && event.composedPath());
     if (ref.current && !path.includes(ref.current)) {
       setOpen(false);
     }
