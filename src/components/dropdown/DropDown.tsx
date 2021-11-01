@@ -1,4 +1,3 @@
-import React from "react";
 import { useDropdownMenu } from "../../hooks/useDropdownMenu";
 import styles from "./DropDown.module.css";
 
