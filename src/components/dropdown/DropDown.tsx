@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const DropDown = ({ menuTitle = "menu", menuElements }: Props) => {
-  const { ref, open, setOpen } = useDropdownMenu(false);
+  const { btnRef, menuRef, open, setOpen } = useDropdownMenu(false);
 
   const toggleDropDown = () => {
     setOpen((prev) => !prev);
@@ -16,9 +16,11 @@ export const DropDown = ({ menuTitle = "menu", menuElements }: Props) => {
 
   return (
     <div className={styles.container}>
-      <button onClick={toggleDropDown}>{menuTitle}</button>
+      <button ref={btnRef} onClick={toggleDropDown}>
+        {menuTitle}
+      </button>
       {open ? (
-        <div className={styles.floating_menu_container} ref={ref}>
+        <div className={styles.floating_menu_container} ref={menuRef}>
           {menuElements}
         </div>
       ) : null}

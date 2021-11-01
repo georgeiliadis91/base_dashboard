@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, MouseEventHandler } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // used to track dropdown menus or modals
 // in case of click outside the component,
@@ -6,16 +6,21 @@ import React, { useState, useRef, useEffect, MouseEventHandler } from "react";
 
 function useDropdownMenu(initiaState: boolean = false) {
   const [open, setOpen] = useState(initiaState);
-  const ref = useRef(null);
+  const menuRef = useRef(null);
+  const btnRef = useRef(null);
 
-  // click handle function
-  const handleClick = (event: MouseEvent) => {
-    console.log("the event", event);
-    // Check for safari, currently not working properly due to event.path TS errors
-    // const path = event.path || (event.composedPath && event.composedPath());
-    const path =
-      (event as any).path || (event.composedPath && event.composedPath());
-    if (ref.current && !path.includes(ref.current)) {
+  // get path of clicked item, if not on tree of dropdown close the opened dropdown
+  const handleClick = (event: Event) => {
+    const path = event.composedPath && event.composedPath();
+
+    // Check for the menuBtn path and MenuPath
+    const isNotInMenuBtnRefPath =
+      btnRef.current && !path.includes(btnRef.current);
+    const isNotDropDownRefPath =
+      menuRef.current && !path.includes(menuRef.current);
+
+    //If outside close it.
+    if (isNotInMenuBtnRefPath && isNotDropDownRefPath) {
       setOpen(false);
     }
   };
@@ -29,7 +34,7 @@ function useDropdownMenu(initiaState: boolean = false) {
     };
   }, []);
 
-  return { ref, open, setOpen };
+  return { btnRef, menuRef, open, setOpen };
 }
 
 export { useDropdownMenu };
