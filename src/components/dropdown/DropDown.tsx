@@ -2,9 +2,12 @@ import React from "react";
 import { useDropdownMenu } from "../../hooks/useDropdownMenu";
 import styles from "./DropDown.module.css";
 
-interface Props {}
+interface Props {
+  menuTitle?: string;
+  menuElements: JSX.Element;
+}
 
-export const DropDown = (props: Props) => {
+export const DropDown = ({ menuTitle = "menu", menuElements }: Props) => {
   const { ref, open, setOpen } = useDropdownMenu(false);
 
   const toggleDropDown = () => {
@@ -13,8 +16,12 @@ export const DropDown = (props: Props) => {
 
   return (
     <div className={styles.container}>
-      <button onClick={toggleDropDown}>menu</button>
-      {open ? <div ref={ref}>menu item</div> : null}
+      <button onClick={toggleDropDown}>{menuTitle}</button>
+      {open ? (
+        <div className={styles.floating_menu_container} ref={ref}>
+          {menuElements}
+        </div>
+      ) : null}
     </div>
   );
 };

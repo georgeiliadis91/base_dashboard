@@ -1,2 +1,11 @@
 .container {
+  position: relative;
+}
+
+.floating_menu_container {
+  position: absolute;
+  z-index: 100;
+  background: grey;
+  width: 80px;
+  right: 0;floating_menu_container
 }

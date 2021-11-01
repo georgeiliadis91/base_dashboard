@@ -10,8 +10,16 @@ export const TopBar = (props: Props) => {
         bread / crumbs / go / here
       </div>
       <div className={styles.user_menu_container}>
-        <DropDown />
+        <DropDown menuTitle="userName" menuElements={MenuList} />
       </div>
     </div>
   );
 };
+
+const MenuList = (
+  <ul className={styles.menu_content_list}>
+    <li>Menu</li>
+    <li>Menu</li>
+    <li>Menu</li>
+  </ul>
+);

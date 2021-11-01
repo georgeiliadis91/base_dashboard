@@ -8,6 +8,10 @@
   padding: 24px;
 }
 
+.menu_content_list {
+  list-style-type: none;
+}
+
 .breadcrumbs_container {
 }
 .user_menu_container {
