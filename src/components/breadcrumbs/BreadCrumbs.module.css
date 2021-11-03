@@ -1,0 +1,11 @@
+.breadcrumbs {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-right:0.5rem;
+}
+
+/* Breadcrumb flex container */
+.breadcrumbs_container {
+  display: flex;
+  align-items: center;
+}
