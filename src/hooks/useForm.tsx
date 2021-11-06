@@ -36,9 +36,9 @@ export function useForm(initialValues : IFormfields){
 }
 
 
-//validates form function
+//validates form function fields
 function validate(formValues: IFormfields){
-    const errors: IFormfields|null = {};
+    const errors: IFormfields = {};
     if(!formValues.name){
         errors.name = 'Name is required';
     }

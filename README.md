@@ -19,3 +19,6 @@ TODOS:
 - Convert to Toolkit
 - Start with tests
 - Write a coders manifest
+- Register page
+- Form validation
+
