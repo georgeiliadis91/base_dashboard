@@ -1,6 +1,7 @@
 import routes from "../views/routes";
 
-// type route = typeof routes[0]; type this properly
+// type this properly
+// type route = typeof routes[0]; 
 
 export const getRouteList = (selectedRoute: string)=> {
     const givenRouteSubItem = routes.find((route) => {return route.path===selectedRoute});
