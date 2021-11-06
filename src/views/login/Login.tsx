@@ -16,12 +16,13 @@ export const Login = (props: Props) => {
   return (
       <div className={styles.login_page_container}>
         <div className={styles.login_form_container}>
+          <h4>Login Here</h4>
           <span>{JSON.stringify(formErrors)}</span>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
-            <input name="name" type="email" onChange={handleChange} value={formValues.name}/> 
+            <input className={styles.login_form_input} name="name" type="email" onChange={handleChange} value={formValues.name}/> 
             <label htmlFor="password">Password</label>
-            <input name="password" type="password" onChange={handleChange} value={formValues.password}/> 
+            <input className={styles.login_form_input} name="password" type="password" onChange={handleChange} value={formValues.password}/> 
             <input value="submit" type="submit"/> 
           </form>
         </div>

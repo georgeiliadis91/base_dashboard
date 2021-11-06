@@ -9,6 +9,7 @@ import { PublicLayout } from "../layouts/public/PublicLayout";
 import { NotFound } from "./not_found/NotFound";
 import { Login } from "./login/Login";
 import { Home } from "./home/Home";
+import { Register } from "./register/Register";
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
     children: [
       { path: "/", element: <Navigate to="/login" /> },
       { path: "/login", element: <Login /> },
+      { path: "/register", element: <Register /> },
       { path: "/404", element: <NotFound /> },
       { path: "*", element: <Navigate to="/404" /> },
     ],
