@@ -10,7 +10,7 @@ export const TopBar = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.breadcrumbs_container}>
-        <BreadCrumbs/>login
+        <BreadCrumbs/>
       </div>
       <div>
         <span>
