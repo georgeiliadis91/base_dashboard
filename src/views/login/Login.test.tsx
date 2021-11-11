@@ -1,4 +1,4 @@
-import { render, queryByTestId, findByTestId } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Login } from "./Login";
 
 function renderLogin() {

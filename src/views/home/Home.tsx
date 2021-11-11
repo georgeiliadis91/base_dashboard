@@ -23,7 +23,7 @@ export const Home = (props: Props) => {
           className={`${styles.btn} ${styles.warning}`}
           onClick={() => warningAlert("Warning Alert Message")}
         >
-          Toggle Error
+          Toggle Warning
         </button>
         <button
           className={`${styles.btn} ${styles.success}`}

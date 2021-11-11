@@ -1,7 +1,8 @@
 .container {
   display: flex;
   height: 100%;
-  background: cornflowerblue;
+  background: #37404a;
+  overflow: hidden;
 }
 
 .main {
@@ -10,9 +11,10 @@
 }
 
 .view_container {
-  border-top-left-radius: 16px;
-  background: #fefefe;
+  /* border-top-left-radius: 16px; */
+  background: #f9f9fd;
   width: 100%;
   height: 100%;
   padding: 18px;
+  box-shadow: inset 0px 0px 8px 2px #cfcfcf;
 }
