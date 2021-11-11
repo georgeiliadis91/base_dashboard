@@ -9,13 +9,13 @@ react-redux toolkit
 
 TODOS:
 
-- Login Page
+- Login Page - Done
 - Auth flow
 - Fetch Helpers
-- BreadCrumbs
-- Side Menu Clearer
-- Link SideMenu to routing and display selected route
-- useDropDown fix for Safari - needs verifycation
+- BreadCrumbs - Needs linking
+- Side Menu Clearer - Done
+- Link SideMenu to routing and display selected route - Done
+- useDropDown fix for Safari - Done
 - Convert to Toolkit
 - Start with tests
 - Write a coders manifest
