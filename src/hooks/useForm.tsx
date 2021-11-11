@@ -1,9 +1,18 @@
 import { useState } from "react";
+import { capitaliseFirstLetter } from "../helpers/stringFormatting";
 
-interface IFormfields {
+interface ILoginFormfields {
   name?: string;
   password?: string;
 }
+
+export interface IRegisterFormfields {
+  name?: string;
+  password?: string;
+  passwordConfirm?: string;
+}
+
+type IFormfields = ILoginFormfields | IRegisterFormfields;
 
 //custom hook with form values
 export function useForm(initialValues: IFormfields) {
@@ -35,12 +44,14 @@ export function useForm(initialValues: IFormfields) {
 
 //validates form function fields
 function validate(formValues: IFormfields) {
+
   const errors: IFormfields = {};
-  if (!formValues.name) {
-    errors.name = "Name is required";
-  }
-  if (!formValues.password) {
-    errors.password = "Password is required";
-  }
+  
+  Object.keys(formValues).forEach((key)=> {
+    if (!formValues[key as keyof IFormfields]) {
+      errors[key as keyof IFormfields] = `${capitaliseFirstLetter(key)} is required`
+    };
+  })
+
   return errors;
 }
