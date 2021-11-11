@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useForm } from "../../hooks/useForm";
 import styles from "./Login.module.css";
 
@@ -20,7 +20,9 @@ export const Login = (props: Props) => {
         <span>
           {Object.values(formErrors).map((errorVal) => {
             if (errorVal) {
-              return <span className={styles.error}>{errorVal}</span>;
+              return<Fragment>
+                    <span className={styles.error}>{errorVal}</span><br />
+                </Fragment>
             }
             return null;
           })}

@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { capitaliseFirstLetter } from "../helpers/stringFormatting";
 
-interface ILoginFormfields {
-  name?: string;
-  password?: string;
-}
 
-export interface IRegisterFormfields {
+
+export interface IFormfields {
   name?: string;
   password?: string;
   passwordConfirm?: string;
 }
 
-type IFormfields = ILoginFormfields | IRegisterFormfields;
 
 //custom hook with form values
 export function useForm(initialValues: IFormfields) {

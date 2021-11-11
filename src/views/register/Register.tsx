@@ -1,10 +1,10 @@
-import React from "react";
-import { IRegisterFormfields, useForm } from "../../hooks/useForm";
+import React, { Fragment } from "react";
+import {  useForm } from "../../hooks/useForm";
 import styles from './Register.module.css'
 interface Props {}
 
 
-const defaultValues: IRegisterFormfields = {
+const defaultValues = {
   name: "",
   password: "",
   passwordConfirm: "",
@@ -22,7 +22,9 @@ export const Register = (props: Props) => {
         <span>
           {Object.values(formErrors).map((errorVal) => {
             if (errorVal) {
-              return <span className={styles.error}>{errorVal}</span>;
+              return <Fragment>
+                    <span className={styles.error}>{errorVal}</span><br />
+                </Fragment>
             }
             return null;
           })}
@@ -50,7 +52,7 @@ export const Register = (props: Props) => {
             name="passwordConfirm"
             type="password"
             onChange={handleChange}
-            // value={formValues.passwordConfirm} fix this 
+            value={formValues.passwordConfirm} 
           />
           <input
             data-testid="form-submit"
