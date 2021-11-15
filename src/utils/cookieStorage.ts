@@ -11,6 +11,7 @@ const cookieStorage: ICookieStorage = {
     var expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
   },
+  //TODO: check this, copilot wrote it
   get: (name) => {
     const tmpName = name + "=";
     const decodedCookie = decodeURIComponent(document.cookie);
