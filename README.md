@@ -17,8 +17,8 @@ TODOS:
 - Link SideMenu to routing and display selected route - Done
 - useDropDown fix for Safari - Done
 - Convert to Toolkit
-- Start with tests
+- Start with tests - In progress
 - Write a coders manifest
-- Register page
+- Register page - Done 
 - Form validation
 
