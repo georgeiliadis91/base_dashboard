@@ -1,3 +1,4 @@
+import { Paper } from "../../components/paper/Paper";
 import {
   useTriggerError,
   useTriggerSuccess,
@@ -14,7 +15,7 @@ export const Home = (props: Props) => {
   const infoAlert = useTriggerInfo();
 
   return (
-    <div>
+    <Paper>
       <h2>Home View</h2>
       {/* Toggle Alert example btns */}
       <h3>Toggle Alerts</h3>
@@ -44,6 +45,6 @@ export const Home = (props: Props) => {
           Toggle Info
         </button>
       </div>
-    </div>
+    </Paper>
   );
 };
