@@ -19,52 +19,41 @@ const initialState: IAlertState = {
   type: ActionTypes.CLOSE,
 };
 
-const triggerErrorAlert = (
-  state: IAlertState,
-  action: PayloadAction<string>
-) => {
-  state = {
+const triggerErrorAlert = (state: IAlertState, action: PayloadAction<string>) =>
+  (state = {
     open: true,
     message: action.payload,
     type: ActionTypes.ERROR,
-  };
-};
+  });
 
 const triggerWarningAlert = (
   state: IAlertState,
   action: PayloadAction<string>
-) => {
-  state = {
+) =>
+  (state = {
     open: true,
     message: action.payload,
     type: ActionTypes.WARNING,
-  };
-};
+  });
 
 const triggerSuccessAlert = (
   state: IAlertState,
   action: PayloadAction<string>
-) => {
-  state = {
+) =>
+  (state = {
     open: true,
     message: action.payload,
     type: ActionTypes.SUCCESS,
-  };
-};
-const triggerInfoAlert = (
-  state: IAlertState,
-  action: PayloadAction<string>
-) => {
-  state = {
+  });
+
+const triggerInfoAlert = (state: IAlertState, action: PayloadAction<string>) =>
+  (state = {
     open: true,
     message: action.payload,
     type: ActionTypes.INFO,
-  };
-};
+  });
 
-const triggerCloseAlert = (state: IAlertState) => {
-  state = initialState;
-};
+const triggerCloseAlert = (state: IAlertState) => (state = initialState);
 
 export const alertSlice = createSlice({
   name: "alert",
