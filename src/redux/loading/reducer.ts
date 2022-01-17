@@ -1,25 +1,21 @@
-
-import { LoadingActionTypes,ActionTypes } from "./actions";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface ILoadingState {
-    loading: boolean;
+  loading: boolean;
 }
 
 const initialState: ILoadingState = { loading: false };
 
-const userReducer = (state = initialState, action: LoadingActionTypes) => {
-  switch (action.type) {
-    case ActionTypes.LOADINGON: {
-      return { loading: true }
-    }
-    case ActionTypes.LOADINGOFF: {
-      return { loading: false }
-    }
- 
-    default:
-      return state;
-  }
-};
+export const loadingSlice = createSlice({
+  name: "loading",
+  initialState,
+  reducers: {
+    setLoadingTrue: (state: ILoadingState) => (state = { loading: true }),
+    setLoadingFalse: (state: ILoadingState) => (state = { loading: false }),
+  },
+});
 
+// Action creators are generated for each case reducer function
+export const { setLoadingTrue, setLoadingFalse } = loadingSlice.actions;
 
-export default userReducer;
+export default loadingSlice.reducer;

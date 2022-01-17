@@ -1,38 +1,38 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "..";
 import {
-  triggerClose,
-  triggerError,
-  triggerInfo,
-  triggerSuccess,
-  triggerWarning,
-} from "./actions";
+  setErrorAlert,
+  setWarningAlert,
+  setSuccessAlert,
+  setInfoAlert,
+  setCloseAlert,
+} from "./reducer";
 
 export function useTriggerWarning() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerWarning>) =>
-    dispatch(triggerWarning(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof setWarningAlert>) =>
+    dispatch(setWarningAlert(...args));
 }
 
 export function useTriggerSuccess() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerSuccess>) =>
-    dispatch(triggerSuccess(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof setSuccessAlert>) =>
+    dispatch(setSuccessAlert(...args));
 }
 
 export function useTriggerError() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerError>) =>
-    dispatch(triggerError(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof setErrorAlert>) =>
+    dispatch(setErrorAlert(...args));
 }
 
 export function useTriggerInfo() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerInfo>) =>
-    dispatch(triggerInfo(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof setInfoAlert>) =>
+    dispatch(setInfoAlert(...args));
 }
 
 export function useTriggerClose() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerClose>) =>
-    dispatch(triggerClose(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof setCloseAlert>) =>
+    dispatch(setCloseAlert(...args));
 }

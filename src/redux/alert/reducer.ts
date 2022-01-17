@@ -1,5 +1,12 @@
-import { ActionTypes, AlertActionTypes } from "./actions";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export enum ActionTypes {
+  ERROR = "ERROR",
+  WARNING = "WARNING",
+  SUCCESS = "SUCCESS",
+  INFO = "INFO",
+  CLOSE = "CLOSE",
+}
 interface IAlertState {
   open: boolean;
   message: string;
@@ -12,63 +19,60 @@ const initialState: IAlertState = {
   type: ActionTypes.CLOSE,
 };
 
-const alertReducer = (state = initialState, action: AlertActionTypes) => {
-  switch (action.type) {
-    case ActionTypes.ERROR: {
-      return triggerErrorAlert(action.payload);
-    }
-    case ActionTypes.WARNING: {
-      return triggerWarningAlert(action.payload);
-    }
-    case ActionTypes.SUCCESS: {
-      return triggerSuccessAlert(action.payload);
-    }
-    case ActionTypes.INFO: {
-      return triggerInfoAlert(action.payload);
-    }
-    case ActionTypes.CLOSE: {
-      return triggerCloseAlert();
-    }
-    default:
-      return state;
-  }
-};
-
-// FUNCTIONS TO BE CALLED ON REDUCER.
-
-const triggerErrorAlert = (message: string) => {
-  return {
+const triggerErrorAlert = (state: IAlertState, action: PayloadAction<string>) =>
+  (state = {
     open: true,
-    message: message,
+    message: action.payload,
     type: ActionTypes.ERROR,
-  };
-};
+  });
 
-const triggerWarningAlert = (message: string) => {
-  return {
+const triggerWarningAlert = (
+  state: IAlertState,
+  action: PayloadAction<string>
+) =>
+  (state = {
     open: true,
-    message: message,
+    message: action.payload,
     type: ActionTypes.WARNING,
-  };
-};
+  });
 
-const triggerSuccessAlert = (message: string) => {
-  return {
+const triggerSuccessAlert = (
+  state: IAlertState,
+  action: PayloadAction<string>
+) =>
+  (state = {
     open: true,
-    message: message,
+    message: action.payload,
     type: ActionTypes.SUCCESS,
-  };
-};
-const triggerInfoAlert = (message: string) => {
-  return {
+  });
+
+const triggerInfoAlert = (state: IAlertState, action: PayloadAction<string>) =>
+  (state = {
     open: true,
-    message: message,
+    message: action.payload,
     type: ActionTypes.INFO,
-  };
-};
+  });
 
-const triggerCloseAlert = () => {
-  return initialState;
-};
+const triggerCloseAlert = (state: IAlertState) => (state = initialState);
 
-export default alertReducer;
+export const alertSlice = createSlice({
+  name: "alert",
+  initialState,
+  reducers: {
+    setErrorAlert: triggerErrorAlert,
+    setWarningAlert: triggerWarningAlert,
+    setSuccessAlert: triggerSuccessAlert,
+    setInfoAlert: triggerInfoAlert,
+    setCloseAlert: triggerCloseAlert,
+  },
+});
+
+export const {
+  setErrorAlert,
+  setWarningAlert,
+  setSuccessAlert,
+  setInfoAlert,
+  setCloseAlert,
+} = alertSlice.actions;
+
+export default alertSlice.reducer;

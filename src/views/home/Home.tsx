@@ -17,6 +17,7 @@ export const Home = (props: Props) => {
   return (
     <Paper>
       <h2>Home View</h2>
+      <br />
       {/* Toggle Alert example btns */}
       <h3>Toggle Alerts</h3>
       <div className={styles.alerts_area}>

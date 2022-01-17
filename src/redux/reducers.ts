@@ -1,14 +1,15 @@
 import User from "./user/reducer";
 import Alert from "./alert/reducer";
 import Loading from "./loading/reducer";
-import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
-const allReducer = combineReducers({
-  user: User,
-  alert: Alert,
-  loading: Loading,
+export const allReducer = configureStore({
+  reducer: {
+    user: User,
+    alert: Alert,
+    loading: Loading,
+  },
 });
 
-export default allReducer;
-
-export type AppState = ReturnType<typeof allReducer>;
+export type AppState = ReturnType<typeof allReducer.getState>;
+export type AppDispatch = typeof allReducer.dispatch;

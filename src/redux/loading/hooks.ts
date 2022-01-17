@@ -1,15 +1,12 @@
-import { useDispatch } from "react-redux";
-import { triggerLoadingOff,triggerLoadingOn} from "./actions";
+import { useAppDispatch } from "..";
+import { setLoadingFalse, setLoadingTrue } from "./reducer";
 
 export function useTriggerLoadingOn() {
-  const dispatch = useDispatch();
-  return () =>
-    dispatch(triggerLoadingOn());
+  const dispatch = useAppDispatch();
+  return () => dispatch(setLoadingTrue());
 }
 
 export function useTriggerLoadingOff() {
-  const dispatch = useDispatch();
-  return () =>
-    dispatch(triggerLoadingOff());
+  const dispatch = useAppDispatch();
+  return () => dispatch(setLoadingFalse());
 }
-

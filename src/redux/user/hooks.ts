@@ -1,21 +1,20 @@
-import { useDispatch } from "react-redux";
-import { triggerSignIn, triggerSignOut, triggerRefreshLogin } from "./actions";
+import { useAppDispatch } from "..";
+import { userSignIn, userSignOut, refreshSignIn } from "./reducer";
 
 export function useTriggerSignIn() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerSignIn>) =>
-    dispatch(triggerSignIn(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof userSignIn>) =>
+    dispatch(userSignIn(...args));
 }
 
 export function useTriggerRefreshLogin() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerRefreshLogin>) =>
-    dispatch(triggerRefreshLogin(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof userSignOut>) =>
+    dispatch(userSignOut(...args));
 }
 
-
 export function useTriggerSignOut() {
-  const dispatch = useDispatch();
-  return (...args: Parameters<typeof triggerSignOut>) =>
-    dispatch(triggerSignOut(...args));
+  const dispatch = useAppDispatch();
+  return (...args: Parameters<typeof refreshSignIn>) =>
+    dispatch(refreshSignIn(...args));
 }
