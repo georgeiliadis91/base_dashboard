@@ -1,13 +1,15 @@
 import React from "react";
-import { ActionTypes } from "../../redux/alert/actions";
-import { useSelector } from "react-redux";
+import { ActionTypes } from "../../redux/alert/reducer";
 import { AppState } from "../../redux/reducers";
 import { useTriggerClose } from "../../redux/alert/hooks";
 import styles from "./Alert.module.css";
+import { useAppSelector } from "../../redux";
 export default function Alert() {
   const closeAlert = useTriggerClose();
 
-  const { open, type, message } = useSelector((state: AppState) => state.alert);
+  const { open, type, message } = useAppSelector(
+    (state: AppState) => state.alert
+  );
 
   const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") {
@@ -28,7 +30,7 @@ export default function Alert() {
       case ActionTypes.INFO:
         return styles.info;
       default:
-        return undefined;
+        return "";
     }
   };
 

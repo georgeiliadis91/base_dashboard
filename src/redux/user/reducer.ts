@@ -1,45 +1,40 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // import { isLocalStorageSupported, LocalStore } from "../../helpers/storage";
-import { ActionTypes, AuthActionTypes } from "./actions";
 
-interface IAlertState {
+interface IUserState {
   isAuthenticated: boolean;
 }
 
-const initialState: IAlertState = { isAuthenticated: false };
+const initialState: IUserState = { isAuthenticated: false };
 
-const userReducer = (state = initialState, action: AuthActionTypes) => {
-  switch (action.type) {
-    case ActionTypes.SIGNIN: {
-      return triggerSignInUser(action.payload);
-    }
-    case ActionTypes.SIGNOUT: {
-      return triggerSignOutUser();
-    }
-    case ActionTypes.REFRESHLOGIN: {
-      return triggerRefreshLogin();
-    }
-    default:
-      return state;
-  }
+const triggerSignInUser = (
+  state: IUserState,
+  action: PayloadAction<string>
+) => {
+  // TODO: handle token action.token
+  state.isAuthenticated = true;
 };
 
-const triggerSignInUser = (token: string) => {
-  //  Set token to local storage
-  // if(isLocalStorageSupported){
-  //   LocalStore.set("token",token)
-  // }
-  return { isAuthenticated: true };
+const triggerRefreshLogin = (state: IUserState) => {
+  state.isAuthenticated = true;
 };
 
-const triggerRefreshLogin = () => {
-  return { isAuthenticated: true };
-};
-
-const triggerSignOutUser = () => {
+const triggerSignOutUser = (state: IUserState) => {
   // if(isLocalStorageSupported){
   //  LocalStore.clear("token")
   // }
-  return { isAuthenticated: false };
+  state.isAuthenticated = false;
 };
 
-export default userReducer;
+export const userSlice = createSlice({
+  name: "loading",
+  initialState,
+  reducers: {
+    userSignIn: triggerSignInUser,
+    userSignOut: triggerSignOutUser,
+    refreshSignIn: triggerRefreshLogin,
+  },
+});
+
+export const { userSignIn, userSignOut, refreshSignIn } = userSlice.actions;
+export default userSlice.reducer;
