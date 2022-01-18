@@ -46,7 +46,13 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "CI=true npm run test"
+    }
+  },
   "devDependencies": {
-    "@testing-library/react-hooks": "^7.0.2"
+    "@testing-library/react-hooks": "^7.0.2",
+    "husky": "^7.0.4"
   }
 }

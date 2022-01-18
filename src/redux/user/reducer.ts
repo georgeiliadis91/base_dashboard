@@ -7,18 +7,17 @@ interface IUserState {
 
 const initialState: IUserState = { isAuthenticated: false };
 
-const triggerSignInUser = (state: IUserState, action: PayloadAction<string>) =>
+const triggerSignInUser = () =>
   // TODO: handle token action.token
-  (state = { isAuthenticated: true });
+  ({ isAuthenticated: true });
 
-const triggerRefreshLogin = (state: IUserState) =>
-  (state = { isAuthenticated: true });
+const triggerRefreshLogin = () => ({ isAuthenticated: true });
 
-const triggerSignOutUser = (state: IUserState) =>
+const triggerSignOutUser = () =>
   // if(isLocalStorageSupported){
   //  LocalStore.clear("token")
   // }
-  (state = { isAuthenticated: false });
+  ({ isAuthenticated: false });
 
 export const userSlice = createSlice({
   name: "loading",

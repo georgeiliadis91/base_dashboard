@@ -10,8 +10,8 @@ export const loadingSlice = createSlice({
   name: "loading",
   initialState,
   reducers: {
-    setLoadingTrue: (state: ILoadingState) => (state = { loading: true }),
-    setLoadingFalse: (state: ILoadingState) => (state = { loading: false }),
+    setLoadingTrue: () => ({ loading: true }),
+    setLoadingFalse: () => ({ loading: false }),
   },
 });
 
