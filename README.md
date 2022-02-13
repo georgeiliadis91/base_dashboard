@@ -12,13 +12,11 @@ TODOS:
 - Login Page - Done
 - Auth flow
 - Fetch Helpers
-- BreadCrumbs - Needs linking
+- BreadCrumbs - Done
 - Side Menu Clearer - Done
 - Link SideMenu to routing and display selected route - Done
 - useDropDown fix for Safari - Done
-- Convert to Toolkit
+- Convert to Toolkit - Done
 - Start with tests - In progress
-- Write a coders manifest
-- Register page - Done 
-- Form validation
-
+- Register page - Done
+- Form validation - Done
