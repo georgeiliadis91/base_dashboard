@@ -20,3 +20,4 @@ TODOS:
 - Start with tests - In progress
 - Register page - Done
 - Form validation - Done
+- Dockerise the enviroment
